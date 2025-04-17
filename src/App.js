@@ -1,32 +1,48 @@
 import React from "react";
 import {Box, Button} from "@mui/material";
-import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link,
+  useLocation,
+} from "react-router-dom";
 import routes from "./routes";
 import "./styles.css";
+
+function NavigationButtons() {
+  const location = useLocation();
+  return (
+    <Box sx={{display: "flex", gap: 2, mb: 4}}>
+      <Button
+        component={Link}
+        to="/nation"
+        variant={
+          location.pathname === "/nation" || location.pathname === "/"
+            ? "contained"
+            : "outlined"
+        }
+        color="primary"
+        sx={{borderRadius: 28, width: 140}}>
+        NATION
+      </Button>
+      <Button
+        component={Link}
+        to="/states"
+        variant={location.pathname === "/states" ? "contained" : "outlined"}
+        color="primary"
+        sx={{borderRadius: 28, width: 140}}>
+        STATES
+      </Button>
+    </Box>
+  );
+}
 
 function App() {
   return (
     <Box p={4}>
       <Router>
-        <Box sx={{display: "flex", gap: 2, mb: 4}}>
-          <Button
-            component={Link}
-            to="/"
-            variant="outlined"
-            color="primary"
-            sx={{borderRadius: 28, width: 140}}>
-            NATION
-          </Button>
-          <Button
-            component={Link}
-            to="/states"
-            variant="outlined"
-            color="primary"
-            sx={{borderRadius: 28, width: 140}}>
-            STATES
-          </Button>
-        </Box>
-
+        <NavigationButtons />
         <Switch>
           {routes.map((route, index) => (
             <Route
