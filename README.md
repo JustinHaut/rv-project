@@ -48,8 +48,8 @@ Using [`https://datausa.io/about/api/`](https://datausa.io/about/api/), follow t
 > **MUI**: [`https://mui.com/material-ui/getting-started/`](https://mui.com/material-ui/getting-started/)
 
 ### Nation Edit
-![alt text](image-1.png)
+![Nation Edit Modal](nation_edit_modal.png)
 
 ### States
-![alt text](image-2.png)
+![States View](states.png)
 
